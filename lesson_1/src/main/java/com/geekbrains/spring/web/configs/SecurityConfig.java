@@ -31,6 +31,7 @@ public class SecurityConfig {
                 .authorizeHttpRequests()
                 .requestMatchers("/api/v1/orders/**").authenticated()
                 .requestMatchers("/api/v1/profile").authenticated()
+                .requestMatchers("/api/v1/carts/saveNewOrder").authenticated()  // сохранить заказ могут только зарегистрированные пользователи
                 .requestMatchers("/api/v1/users/**").hasAnyRole("ADMIN")
                 .requestMatchers("/h2-console/**").permitAll()
                 .requestMatchers("/auth").permitAll()
