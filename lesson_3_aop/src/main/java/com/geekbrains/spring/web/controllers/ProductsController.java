@@ -29,8 +29,11 @@ public class ProductsController {
         if (page < 1) {
             page = 1;
         }
+
+        productsService.testException("test");
+
         return productsService.findAll(minPrice, maxPrice, titlePart, category, page).map(
-                p -> productConverter.entityToDto(p)
+                productConverter::entityToDto
         );
     }
 

@@ -56,4 +56,10 @@ public class ProductsService {
         product.setTitle(productDto.getTitle());
         return product;
     }
+
+    public void testException(String value){
+        if("test".equals(value)){
+            throw  new RuntimeException("test exception");
+        }
+    }
 }
