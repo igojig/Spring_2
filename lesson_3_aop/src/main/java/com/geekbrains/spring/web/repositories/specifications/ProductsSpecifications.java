@@ -15,4 +15,10 @@ public class ProductsSpecifications {
     public static Specification<Product> titleLike(String titlePart) {
         return (root, criteriaQuery, criteriaBuilder) -> criteriaBuilder.like(root.get("title"), String.format("%%%s%%", titlePart));
     }
+
+    public static Specification<Product> categoryEquals(String category){
+        //                                                                  table        table             field
+        //                                                              [products]->[categories]->[categories.category]
+        return (root, query, criteriaBuilder) -> criteriaBuilder.equal(root.get("category").get("category"), category);
+    }
 }
