@@ -32,7 +32,7 @@ public class ServiceAspect {
         Object result=null;
         try {
             result=pjp.proceed();
-            log.info("Method {}#{} with arguments {}", beanClass, methodName, argValues);
+            log.debug("Method {}#{} with arguments {}", beanClass, methodName, argValues);
         }
         // в ProductController->findAll добавлен вызов TestException
         catch (RuntimeException e){
